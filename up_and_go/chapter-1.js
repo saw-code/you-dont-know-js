@@ -15,13 +15,11 @@ let obj = {
   b: 42
 };
 
-
 let c = "a";              // a
 
 console.log(c);
 console.log(obj[c]);			// "hello world"
 console.log(obj["b"]);		// 42
-
 
 // __________________________________________________________________
 
