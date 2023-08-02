@@ -10,16 +10,24 @@
 
 // object
 
-let obj = {
-  a: "hello world",
-  b: 42
-};
-
-let c = "a";              // a
-
-console.log(c);
-console.log(obj[c]);			// "hello world"
-console.log(obj["b"]);		// 42
+// let obj = {
+//   a: "hello world",
+//   b: 42
+// };
+//
+// let c = "a";              // a
+//
+// console.log(c);
+// console.log(obj[c]);			// "hello world"
+// console.log(obj["b"]);		// 42
 
 // __________________________________________________________________
+
+// let store = {
+//   a () {
+//     let b = () => {
+//       console.log("hui")
+//     }
+//   }
+// }
 
