@@ -2,10 +2,32 @@
 //
 // var a = 2;
 
-foo();
+// foo();
+//
+// function foo() {
+//   console.log( a ); // undefined
+//
+//   var a = 2;
+// }
 
-function foo() {
-  console.log( a ); // undefined
+// foo(); // 3
+//
+// function foo() {
+//   console.log( 1 );
+// }
+//
+// var foo = function() {
+//   console.log( 2 );
+// };
+//
+// function foo() {
+//   console.log( 3 );
+// }
 
-  var a = 2;
-}
+// function bar(){
+//   setTimeout(() =>"var cc = 313")
+//   let b = 555
+//   console.log(cc)
+// }
+//
+// bar()
