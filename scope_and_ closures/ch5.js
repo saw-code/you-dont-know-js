@@ -47,24 +47,96 @@
 
 
 
-let fn;
+// let fn;
+//
+// function foo() {
+//   let a = 2;
+//
+//   function baz() {
+//     console.log( a );
+//   }
+//
+//   fn = baz; // присваиваем `baz` глобальной переменной
+// }
+//
+// function bar() {
+//   fn(); // смотри мам, я видел замыкание!
+// }
+//
+// foo();
+//
+// bar(); // 2
 
-function foo() {
-  let a = 2;
 
-  function baz() {
-    console.log( a );
+
+//
+// for (var i=1; i<=5; i++) {
+//   console.log( "XXX " + i );
+//   setTimeout( function timer(){
+//     console.log( i );
+//   }, i*1000 );
+// }
+
+// for (var i=1; i<=5; i++) {
+//   (function(){
+//     var j = i
+//     setTimeout( function timer(){
+//       console.log( j );
+//     }, i*1000 );
+//   })();
+// }
+
+
+
+// function CoolModule() {
+//   var something = "cool";
+//   var another = [1, 2, 3];
+//
+//   function doSomething() {
+//     console.log( something );
+//   }
+//
+//   function doAnother() {
+//     console.log( another.join( " ! " ) );
+//   }
+//
+//   return {
+//     doSomething: doSomething,
+//     doAnother: doAnother
+//   };
+// }
+//
+// var foo = CoolModule();
+//
+// foo.doSomething(); // cool
+// foo.doAnother(); // 1 ! 2 ! 3
+
+
+
+
+
+var foo = (function CoolModule(id) {
+  function change() {
+    // modifying the public API
+    publicAPI.identify = identify2;
   }
 
-  fn = baz; // присваиваем `baz` глобальной переменной
-}
+  function identify1() {
+    console.log( id );
+  }
 
-function bar() {
-  fn(); // смотри мам, я видел замыкание!
-}
+  function identify2() {
+    console.log( id.toUpperCase() );
+  }
 
-foo();
+  var publicAPI = {
+    change: change,
+    identify: identify1
+  };
 
-bar(); // 2
+  return publicAPI;
+})( "foo module" );
 
-https://github.com/azat-io/you-dont-know-js-ru/blob/master/scope%20%26%20closures/ch5.md#:~:text=%D0%A2%D0%B5%D0%BF%D0%B5%D1%80%D1%8C%20%D1%8F-,%D0%B2%D0%B8%D0%B6%D1%83,-%D0%A0%D0%B0%D0%BD%D0%B5%D0%B5%20%D0%BF%D1%80%D0%B8%D0%B2%D0%BE%D0%B4%D0%B8%D0%BC%D1%8B%D0%B5%20%D1%87%D0%B0%D1%81%D1%82%D0%B8
+foo.identify(); // foo module
+foo.change();
+foo.identify(); // FOO MODULE
